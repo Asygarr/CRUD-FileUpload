@@ -4,7 +4,7 @@ import db from "../config/Database.js";
 const { DataTypes } = Sequelize;
 
 const Product = db.define(
-  "products",
+  "product",
   {
     name: DataTypes.STRING,
     image: DataTypes.STRING,
