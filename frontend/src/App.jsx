@@ -1,10 +1,14 @@
+/* eslint-disable no-unused-vars */
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductList from "./components/ProductList";
+
 const App = () => {
   return (
-    <div>
-      <h2>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, soluta.
-      </h2>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
