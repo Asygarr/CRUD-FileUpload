@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -21,20 +22,20 @@ const ProductList = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className="container mt-5">
+      <Link to="/add" className="button is-success">
+        Add New
+      </Link>
       <div className="columns is-multiline">
         {products.map((product) => (
           <div className="column is-one-quarter" key={product.id}>
             <div className="card">
               <div className="card-image">
                 <figure className="image is-4by3">
-                  <img
-                    src={product.url}
-                    alt="Image"
-                  />
+                  <img src={product.url} alt="Image" />
                 </figure>
               </div>
 
@@ -47,8 +48,15 @@ const ProductList = () => {
               </div>
 
               <footer className="card-footer">
-                <a className="card-footer-item">Edit</a>
-                <a onClick={() => deleteProduct(product.id)} className="card-footer-item">Delete</a>
+                <Link to={`edit/${product.id}`} className="card-footer-item">
+                  Edit
+                </Link>
+                <a
+                  onClick={() => deleteProduct(product.id)}
+                  className="card-footer-item"
+                >
+                  Delete
+                </a>
               </footer>
             </div>
           </div>
